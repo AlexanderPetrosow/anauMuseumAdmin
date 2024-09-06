@@ -1,0 +1,25 @@
+{
+  "menu": [
+    {
+      "url": "/admin/tickets",
+      "name": "words.tickets",
+      "icon": "menu-icon tf-icons bx bx-collection",
+      "slug": "ticket"
+    },
+    {
+      "menuHeader": "words.other"
+    },
+    {
+      "url": "/admin/support",
+      "icon": "menu-icon tf-icons bx bx-support",
+      "name": "words.support",
+      "slug": "support"
+    },
+    {
+      "url": "/admin/documentation",
+      "icon": "menu-icon tf-icons bx bx-file",
+      "name": "words.documentation",
+      "slug": "documentation"
+    } 
+  ]
+}

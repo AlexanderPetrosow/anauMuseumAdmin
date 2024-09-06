@@ -1,0 +1,67 @@
+{
+  "menu": [
+    {
+      "url": "/admin/dashboards",
+      "name": "words.dashboard",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard"
+    },
+    {
+      "url": "/admin/tickets",
+      "name": "words.tickets",
+      "icon": "menu-icon tf-icons bx bx-collection",
+      "slug": "ticket"
+    },
+    {
+      "menuHeader": "words.components"
+    },
+    {
+      "url": "/admin/tariffs",
+      "name": "words.tariffs",
+      "icon": "menu-icon tf-icons bx bx-copy",
+      "slug": "tariff"
+    },
+    {
+      "url": "/admin/halls",
+      "name": "words.halls",
+      "icon": "menu-icon tf-icons bx bx-cube-alt",
+      "slug": "hall"
+    },
+    {
+      "url": "/admin/exposures",
+      "name": "words.exposures",
+      "icon": "menu-icon tf-icons bx bx-box",
+      "slug": "exposure"
+    },
+    {
+      "url": "/admin/exhibits",
+      "name": "words.exhibits",
+      "icon": "menu-icon tf-icons bx bx-collection",
+      "slug": "exhibit"
+    },
+    {
+      "menuHeader": "words.setting"
+    },
+    {
+      "url": "/admin/users",
+      "name": "words.users",
+      "icon": "menu-icon tf-icons bx bx-lock-open-alt",
+      "slug": "user"
+    },
+    {
+      "menuHeader": "words.other"
+    },
+    {
+      "url": "/admin/support",
+      "icon": "menu-icon tf-icons bx bx-support",
+      "name": "words.support",
+      "slug": "support"
+    },
+    {
+      "url": "/admin/documentation",
+      "icon": "menu-icon tf-icons bx bx-file",
+      "name": "words.documentation",
+      "slug": "documentation"
+    } 
+  ]
+}

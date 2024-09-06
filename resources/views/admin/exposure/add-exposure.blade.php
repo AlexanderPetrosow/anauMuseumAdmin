@@ -1,0 +1,222 @@
+<!-- Loading -->
+<div class="loading-page loading-spin position-absolute spinner-grow dnone" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="loading-page loading-bg position-absolute w-100 h-100 dnone"></div>
+@extends('layouts/contentNavbarLayout') @section('title', __('words.add-exposure-pg')) @section('page-script')
+<script src="{{asset('assets/js/pages-account-settings-account.js')}}"></script>
+@endsection @section('content')
+
+<h4 class="fw-bold py-3 mb-4">
+  <span class="text-muted fw-light">{{__('words.exposure')}}/</span> {{__('words.add-exposure')}}
+</h4>
+
+<form id="formAccountSettings" method="POST" action="/{{$lang}}/admin/add-exposure" enctype="multipart/form-data">
+@csrf
+<!-- Навигазионное меню -->
+<div class="row">
+  <div class="col-12">
+    <ul class="nav nav-pills flex-column flex-md-row mb-3">
+      <li class="nav-item" id="tm-btn">
+        <span class="nav-link active">
+          <img src="/assets/img/icons/unicons/tm-flag.png" width="20">  
+          {{__('words.turkmen')}}
+        </span>
+      </li>
+      <li class="nav-item" id="ru-btn">
+        <span class="nav-link">
+          <img src="/assets/img/icons/unicons/ru-flag.png" width="20">  
+          {{__('words.russian')}}
+        </span>
+      </li>
+      <li class="nav-item" id="eng-btn">
+        <span class="nav-link">
+          <img src="/assets/img/icons/unicons/en-flag.png" width="20"> 
+          {{__('words.english')}}
+        </span>
+      </li>
+    </ul>
+  </div>
+  @if($errors->any())
+  <div class="col-12 alert alert-danger alert-dismissible fade show" role="alert">
+    @foreach($errors->all() as $err)
+    <span>{{$err}}; </span>
+    @endforeach
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  @endif
+  <!-- Меню на туркменском -->
+  <div class="col-md-6" h-75>
+    <div class="card mb-4">
+      <hr class="my-0" />
+      {{-- tm-card-info --}}
+        <div class="card-body info-cards" id="tm-card">
+          <div class="row">
+            <div class="mb-3 col-md-12">
+              <label for="firstName" class="form-label">{{__('words.rename')}}</label>
+              <input class="form-control" type="text" id="firstName" name="tm_name" placeholder="{{__('words.write-name')}}" autofocus/>
+              <span class="text-danger">@error('tm_name'){{$message}}@enderror<span>
+            </div>
+            <div class="mb-3 col-md-12">
+              <label for="lastName" class="form-label">{{__('words.comments')}}</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="tm_description" rows="3" placeholder="{{__('words.write-desc')}}"></textarea>
+              <span class="text-danger">@error('tm_description'){{$message}}@enderror<span>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="formFile" class="form-label">{{__('words.audio')}}</label>
+              <input class="form-control" type="file" name="tm_audio" id="formFile" accept="audio/*">
+              <span class="text-danger">@error('tm_audio'){{$message}}@enderror<span>
+            </div>
+          </div>
+        </div>
+        <!-- Меню на русском -->
+        {{-- ru-card-info --}}
+        <div class="card-body info-cards dnone" id="ru-card">
+          <div class="row">
+            <div class="mb-3 col-md-12">
+              <label for="firstName" class="form-label">{{__('words.rename')}}</label>
+              <input class="form-control" type="text" id="firstName" name="ru_name" placeholder="{{__('words.write-name')}}" autofocus/>
+              <span class="text-danger">@error('ru_name'){{$message}}@enderror<span>
+            </div>
+            <div class="mb-3 col-md-12">
+              <label for="lastName" class="form-label">{{__('words.comments')}}</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="ru_description" rows="3" placeholder="{{__('words.write-desc')}}"></textarea>
+              <span class="text-danger">@error('ru_description'){{$message}}@enderror<span>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="formFile" class="form-label">{{__('words.audio')}}</label>
+              <input class="form-control" type="file" name="ru_audio" id="formFile" accept="audio/*">
+              <span class="text-danger">@error('ru_audio'){{$message}}@enderror<span>
+            </div>
+          </div>
+        </div>
+        <!-- Меню на английском -->
+        {{-- eng-card-info --}}
+        <div class="card-body info-cards dnone" id="eng-card">
+          <div class="row">
+            <div class="mb-3 col-md-12">
+              <label for="firstName" class="form-label">{{__('words.rename')}}</label>
+              <input class="form-control" type="text" id="firstName" name="eng_name" placeholder="{{__('words.write-name')}}" autofocus/>
+              <span class="text-danger">@error('eng_name'){{$message}}@enderror<span>
+            </div>
+            <div class="mb-3 col-md-12">
+              <label for="lastName" class="form-label">{{__('words.comments')}}</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="eng_description" rows="3" placeholder="{{__('words.write-desc')}}"></textarea>
+              <span class="text-danger">@error('eng_description'){{$message}}@enderror<span>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="formFile" class="form-label">{{__('words.audio')}}</label>
+              <input class="form-control" type="file" name="eng_audio" id="formFile" accept="audio/*">
+              <span class="text-danger">@error('eng_audio'){{$message}}@enderror<span>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- /Account -->
+  </div>
+  <div class="col-md-6 h-75">
+    <div class="card mb-4">
+      <!-- Account -->
+      <hr class="my-0" />
+      <div class="card-body">
+
+          <div class="row">
+          <div class="mb-3 col-md-12">
+              <label for="Hall" class="form-label">{{__('words.hall')}}</label>
+              <select id="hall" name="hall" class="select2 form-select">
+                <option <?php echo count($halls) != 0 ? "hidden" : ""; ?> value="">{{__('words.select-hall')}}</option>
+                @foreach($halls as $hall)
+                <option value="{{$hall['id']}}">{{$hall[$lang.'_name']}}</option>
+                @endforeach
+              </select>
+              <span class="text-danger">@error('hall'){{$message}}@enderror<span>
+            </div>
+          <div class="col-12 mb-3">
+              <label for="formFile" class="form-label">{{__('words.image')}}</label>
+              <input class="form-control" name="image" type="file" accept="image/*">
+              <span class="text-danger">@error('image'){{$message}}@enderror<span>
+            </div>
+            <!-- <div class="mb-3 col-md-12">
+              <label for="firstName" class="form-label">{{__('words.sorting')}}</label>
+              <input class="form-control" type="text" name="sort" placeholder="0" value="0" autofocus/>
+              <span class="text-danger">@error('sort'){{$message}}@enderror<span>
+            </div> -->
+            <div class="col-12 mb-3">
+            <label for="firstName" class="form-label">{{__('words.status')}}</label>
+                  <select name="status" id="input-status" class="form-control">
+                    <option value="1" selected="selected">{{__('words.turn-on')}}</option>
+                    <option value="0">{{__('words.turn-off')}}</option>
+                  </select>
+            </div>
+            
+            <div class="mt-2">
+              <button type="submit" class="btn btn-primary me-2">
+              {{__('words.save')}}
+              </button>
+              <a href="/{{$lang}}/admin/exposures">
+                <button type="button" class="btn btn-outline-secondary">
+                {{__('words.cancel')}}
+                </button>
+              </a>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    <!-- /Account -->
+  </div>
+</form>
+  <!-- <div class="col-lg-11 my-3">
+  <div class="card align-bottom ">
+  <h5 class="card-header">Сохранено</h5>
+      <div class="card-body">
+        <div class="mb-3 col-12 mb-0">
+          <div class="alert alert-warning bg-successfull">
+            <h6 class="alert-heading fw-bold mb-1">Добавлено успешно</h6>
+            <p class="mb-0">Экспозиция успешно добавлена, перейдите во все экспозиции для просмотра</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+  
+<script>
+  $(document).ready(function(){
+    // tm button
+    $('#tm-btn').click(function(){
+      // button active
+      $('.nav-link').removeClass('active');
+      $('#tm-btn>.nav-link').addClass('active');
+      // Card show
+      $('.info-cards').addClass('dnone');
+      $('#tm-card').removeClass('dnone');
+    });
+    // ru button
+    $('#ru-btn').click(function(){
+      // button active
+      $('.nav-link').removeClass('active');
+      $('#ru-btn>.nav-link').addClass('active');
+      // Card show
+      $('.info-cards').addClass('dnone');
+      $('#ru-card').removeClass('dnone');
+    });
+    // eng button
+    $('#eng-btn').click(function(){
+      // button active
+      $('.nav-link').removeClass('active');
+      $('#eng-btn>.nav-link').addClass('active');
+      // Card show
+      $('.info-cards').addClass('dnone');
+      $('#eng-card').removeClass('dnone');
+    });
+
+    // Form submit
+    $("form").submit(function(){
+      $('.loading-page').removeClass('dnone');
+    });
+  });
+</script>
+
+@endsection

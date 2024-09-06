@@ -1,0 +1,35 @@
+{
+    "menu": [
+      {
+        "menuHeader": "words.components"
+      },
+      {
+        "url": "/admin/halls",
+        "name": "words.halls",
+        "icon": "menu-icon tf-icons bx bx-cube-alt",
+        "slug": "hall"
+      },
+      {
+        "url": "/admin/exposures",
+        "name": "words.exposures",
+        "icon": "menu-icon tf-icons bx bx-box",
+        "slug": "exposure"
+      },
+      {
+        "url": "/admin/exhibits",
+        "name": "words.exhibits",
+        "icon": "menu-icon tf-icons bx bx-collection",
+        "slug": "exhibit"
+      },
+      {
+        "menuHeader": "words.other"
+      },
+      {
+        "url": "/admin/support",
+        "icon": "menu-icon tf-icons bx bx-support",
+        "name": "words.support",
+        "slug": "support"
+      }
+    ]
+  }
+  
